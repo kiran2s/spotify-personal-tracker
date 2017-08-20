@@ -9,9 +9,6 @@ import com.spotify.sdk.android.authentication.AuthenticationClient;
 import com.spotify.sdk.android.authentication.AuthenticationRequest;
 import com.spotify.sdk.android.authentication.AuthenticationResponse;
 
-import kaaes.spotify.webapi.android.SpotifyApi;
-import kaaes.spotify.webapi.android.SpotifyService;
-
 public class MainActivity extends AppCompatActivity {
     private static final String LOG_ID = "MainActivity";
 
@@ -19,15 +16,10 @@ public class MainActivity extends AppCompatActivity {
     private static final String REDIRECT_URI = "kssivakumar-spotify-personal-tracker://callback";
     private static final int AUTH_REQUEST_CODE = 1337;
 
-    private SpotifyApi webApi;
-    private SpotifyService webService;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        webApi = new SpotifyApi();
 
         AuthenticationRequest authRequest = new AuthenticationRequest.Builder(
                 CLIENT_ID,
@@ -49,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 AuthenticationResponse authResponse
                         = AuthenticationClient.getResponse(resultCode, data);
                 if (authResponse.getType() == AuthenticationResponse.Type.TOKEN) {
-                    webApi.setAccessToken(authResponse.getAccessToken());
-                    webService = webApi.getService();
+
                 }
                 break;
             }

@@ -19,11 +19,6 @@ android {
     }
 }
 
-repositories {
-    mavenCentral()
-    maven { url "https://jitpack.io" }
-}
-
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -31,7 +26,6 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.spotify.android:auth:1.0.0-alpha'
-    compile 'com.github.kaaes:spotify-web-api-android:0.4.1'
 
     testCompile 'junit:junit:4.12'
 }

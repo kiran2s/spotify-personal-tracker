@@ -19,12 +19,9 @@ android {
     }
 }
 
-// From Spotify Android SDK tutorial
 repositories {
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
+    maven { url "https://jitpack.io" }
 }
 
 dependencies {
@@ -33,12 +30,8 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:25.3.1'
-
-    // This library handles authentication and authorization
     compile 'com.spotify.android:auth:1.0.0-alpha'
-
-    // This library handles music playback
-    compile 'com.spotify.sdk:spotify-player-24-noconnect-2.20b@aar'
+    compile 'com.github.kaaes:spotify-web-api-android:0.4.1'
 
     testCompile 'junit:junit:4.12'
 }

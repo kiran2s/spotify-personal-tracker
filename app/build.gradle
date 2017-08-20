@@ -19,11 +19,26 @@ android {
     }
 }
 
+// From Spotify Android SDK tutorial
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+
+    // This library handles authentication and authorization
+    compile 'com.spotify.android:auth:1.0.0-alpha'
+
+    // This library handles music playback
+    compile 'com.spotify.sdk:spotify-player-24-noconnect-2.20b@aar'
+
     testCompile 'junit:junit:4.12'
 }
